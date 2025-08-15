@@ -9,6 +9,7 @@ export function Elements({ Elements }) {
   };
 
   console.log(Elements);
+
   return (
     <>
       {Elements.map((element) => {
