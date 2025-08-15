@@ -1,0 +1,26 @@
+GET http://localhost:1234/elements
+
+
+###
+POST  http://localhost:1234/elements
+Content-Type: application/json
+
+{
+    "name": "Knife",
+    "description":"Situational tool",
+    "weight":1,
+    "category": 2
+}
+
+###
+
+PATCH http://localhost:1234/elements/5
+Content-Type: application/json
+
+{
+    "name": "tools",
+    "description":"Tools of reparation or situational"
+}
+
+###
+DELETE  http://localhost:1234/elements/3

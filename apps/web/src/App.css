@@ -1,0 +1,65 @@
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: black;
+}
+
+/* Header  */
+header {
+  height: 100px;
+  color: white;
+  font-family:
+    Open Sans,
+    arial,
+    sans-serif;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+header nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style-type: none;
+  padding: 0px;
+}
+/* Main */
+
+main {
+  color: white;
+  font-family:
+    Open Sans,
+    arial,
+    sans-serif;
+  background-image: url("assets/main-b.avif");
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  flex: 1;
+}
+
+/* Footer */
+footer {
+  height: 7dvh;
+  color: white;
+  font-family:
+    Open Sans,
+    arial,
+    sans-serif;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

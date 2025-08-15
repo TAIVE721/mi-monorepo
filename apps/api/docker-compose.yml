@@ -1,0 +1,17 @@
+services:
+  postgre:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=Mars_P
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+  backend:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "1234:1234"

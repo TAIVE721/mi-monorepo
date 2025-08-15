@@ -1,0 +1,25 @@
+GET http://localhost:1234/category
+
+
+###
+POST  http://localhost:1234/category
+Content-Type: application/json
+
+{
+    "name": "waaaaaaaa",
+    "priority":4
+}
+
+###
+
+PATCH http://localhost:1234/category/2
+Content-Type: application/json
+
+{
+    "name": "papu",
+    "priority":5
+}
+
+###
+DELETE  http://localhost:1234/category/3
+
