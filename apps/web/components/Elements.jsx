@@ -8,15 +8,20 @@ export function Elements({ Elements }) {
     setEdit(id);
   };
 
+  console.log(Elements);
   return (
     <>
       {Elements.map((element) => {
-        if (element.id == edit) {
-          return <Partial_element element={element}></Partial_element>;
+        if (element.id != edit) {
+          return (
+            <N_element
+              key={element.id}
+              HandleEdit={HandleEdit}
+              element={element}
+            ></N_element>
+          );
         }
-        return (
-          <N_element HandleEdit={HandleEdit} element={element}></N_element>
-        );
+        return <Partial_element element={element}></Partial_element>;
       })}
     </>
   );
