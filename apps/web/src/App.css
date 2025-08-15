@@ -35,6 +35,11 @@ header nav ul {
   list-style-type: none;
   padding: 0px;
 }
+
+header nav ul li:hover {
+  cursor: pointer;
+}
+
 /* Main */
 
 main {
@@ -48,6 +53,57 @@ main {
   background-position: center;
   padding: 50px;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 30px;
+}
+
+main article {
+  border-radius: 10px;
+  border: 3px solid rgb(77, 74, 74);
+  padding: 10px;
+  width: 300px;
+  height: 300px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "name name  priority"
+    "category category priority"
+    "description description weight "
+    "edit edit delete";
+  align-items: center;
+  gap: 10px;
+}
+
+main article p:first-child {
+  grid-area: name;
+}
+main article p:nth-child(2) {
+  grid-area: category;
+}
+
+main article p:nth-child(3) {
+  grid-area: weight;
+  justify-self: center;
+}
+
+main article p:nth-child(4) {
+  grid-area: description;
+}
+
+main article p:nth-child(5) {
+  grid-area: priority;
+  justify-self: center;
+}
+
+main article button:nth-child(6) {
+  grid-area: edit;
+}
+main article button:nth-child(7) {
+  grid-area: delete;
 }
 
 /* Footer */

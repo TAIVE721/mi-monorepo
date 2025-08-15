@@ -74,7 +74,7 @@ export async function Patch_E(data) {
 }
 
 export async function Delete_E(id) {
-  const res = fetch("http://localhost:1234/elements" + id, {
+  const res = fetch("http://localhost:1234/elements/" + id, {
     method: "DELETE",
   });
 
