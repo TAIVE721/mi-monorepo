@@ -19,7 +19,7 @@ export async function Call_Elements() {
 }
 
 export async function Add_E(data) {
-  const res = await fetch("http://localhost:elements", {
+  const res = await fetch("http://localhost:1234elements", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export async function Patch_E(data) {
 }
 
 export async function Delete_E(id) {
-  const res = fetch("http://localhost:1234/" + id, {
+  const res = fetch("http://localhost:1234/elements" + id, {
     method: "DELETE",
   });
 

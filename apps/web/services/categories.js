@@ -15,7 +15,7 @@ export async function Call_Categories() {
 }
 
 export async function Add_C(data) {
-  const res = await fetch("http://localhost:1234/cateogry", {
+  const res = await fetch("http://localhost:1234/category", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export async function Patch_C(data) {
     priority: data.priority,
   };
 
-  const res = await fetch("http://localhost:1234/cateogry/" + data.id, {
+  const res = await fetch("http://localhost:1234/category/" + data.id, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export async function Patch_C(data) {
 }
 
 export async function Delete_C(id) {
-  const res = await fetch("http://localhost:1234/cateogry/" + id, {
+  const res = await fetch("http://localhost:1234/category/" + id, {
     method: "DELETE",
   });
   if (res.ok) {

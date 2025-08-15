@@ -4,10 +4,13 @@ import { T_elements } from "../contexts/E_context";
 export function S_Elements() {
   const { elements } = use(T_elements);
 
-  console.log(elements);
+  const handleClick = () => {
+    console.log(elements);
+  };
+
   return (
     <>
-      <h1>hola</h1>
+      <h1 onClick={handleClick}>hola</h1>
     </>
   );
 }
