@@ -1,6 +1,7 @@
 export async function Call_Elements() {
   const res = await fetch("http://localhost:1234/elements");
 
+  console.log(res);
   const json = await res.json();
   const data = json.map((element) => {
     return {

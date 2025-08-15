@@ -8,7 +8,7 @@ export const T_categories = createContext("");
 export function Categories_Provider({ children }) {
   const { getCategories } = useCategories();
 
-  const [state, dispatch] = useReducer(C_reducer, "");
+  const [state, dispatch] = useReducer(C_reducer, []);
 
   async function Reload_C() {
     const categories = await getCategories();

@@ -8,7 +8,7 @@ export const T_elements = createContext("");
 export function Elements_Provider({ children }) {
   const { getElements } = useElements();
 
-  const [state, dispatch] = useReducer(Elements_reducer, "");
+  const [state, dispatch] = useReducer(Elements_reducer, []);
 
   async function Reload_E() {
     const elements = await getElements();
