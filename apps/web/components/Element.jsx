@@ -15,7 +15,7 @@ export function N_element({ element, HandleEdit }) {
       <p>{element.weight}kg</p>
       <p>{element.description} </p>
       <p>{element.priority} </p>
-      <button onClick={HandleEdit(element.id)}>edit</button>
+      <button onClick={() => HandleEdit(element.id)}>edit</button>
       <button onClick={HandleDelete}>delete</button>
     </article>
   );
