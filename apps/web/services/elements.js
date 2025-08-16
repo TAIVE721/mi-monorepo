@@ -26,7 +26,7 @@ export async function Add_E(data) {
     body: JSON.stringify(data),
   });
 
-  const json = res.json();
+  const json = await res.json();
 
   const n_data = {
     id: json.id,
@@ -50,7 +50,7 @@ export async function Patch_E(data) {
   };
 
   console.log(ts_data);
-  const res = fetch("http://localhost:1234/elements/" + data.id, {
+  const res = await fetch("http://localhost:1234/elements/" + data.id, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export async function Patch_E(data) {
     body: JSON.stringify(ts_data),
   });
 
-  const json = res.json();
+  const json = await res.json();
 
   const n_data = {
     id: json.id,
@@ -74,7 +74,7 @@ export async function Patch_E(data) {
 }
 
 export async function Delete_E(id) {
-  const res = fetch("http://localhost:1234/elements/" + id, {
+  const res = await fetch("http://localhost:1234/elements/" + id, {
     method: "DELETE",
   });
 
