@@ -1,11 +1,10 @@
 import { Pool } from "pg";
 
 const pool = new Pool({
-  host: "localhost",
-  user: "postgres",
-  port: 5432,
-  password: "",
-  database: "Mars_P",
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 export class C_model {
