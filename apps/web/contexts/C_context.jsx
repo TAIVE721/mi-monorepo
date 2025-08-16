@@ -49,7 +49,7 @@ export function Categories_Provider({ children }) {
   }, []);
 
   return (
-    <T_categories
+    <T_categories.Provider
       value={{
         categories: state,
         Reload_C,
@@ -59,6 +59,6 @@ export function Categories_Provider({ children }) {
       }}
     >
       {children}
-    </T_categories>
+    </T_categories.Provider>
   );
 }

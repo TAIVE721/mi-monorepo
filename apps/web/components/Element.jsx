@@ -41,6 +41,7 @@ export function Partial_element({ element }) {
 
   const { categories } = use(T_categories);
 
+  console.log(categories);
   return (
     <form>
       <input
@@ -67,10 +68,10 @@ export function Partial_element({ element }) {
         onChange={handleChange}
         value={data.description}
       />
-      <select name="priority" onChange={handleChange} value={data.priority}>
+      <select name="priority">
         {categories.map((category) => {
           return (
-            <option key={category.id} value={category.id}>
+            <option key={category.id} value={category.name}>
               {category.name}
             </option>
           );
