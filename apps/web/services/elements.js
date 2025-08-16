@@ -49,7 +49,7 @@ export async function Patch_E(data) {
     category: data.category,
   };
 
-  console.log(ts_data);
+  console.log(data.id);
   const res = await fetch("http://localhost:1234/elements/" + data.id, {
     method: "PATCH",
     headers: {

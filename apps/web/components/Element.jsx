@@ -47,6 +47,7 @@ export function Partial_element({ element, Handle_Nedit }) {
     const description = formdata.get("description");
     const category = formdata.get("category");
 
+    console.log(element.id);
     PatchElement({
       id: element.id,
       name,

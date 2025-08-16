@@ -26,7 +26,7 @@ export function Elements({ Elements }) {
         }
         return (
           <Partial_element
-            Handle_Nedit={HandleEdit}
+            Handle_Nedit={Handle_Nedit}
             element={element}
           ></Partial_element>
         );
