@@ -163,7 +163,7 @@ main .Category_Form {
   border: 5px solid black;
   padding: 10px;
   border-radius: 10px;
-  width: 200px;
+  width: 300px;
   height: 200px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -179,12 +179,10 @@ main .Category_Form {
 }
 
 main .Category_Form input:first-child {
-  width: 100%;
   grid-area: name;
 }
 
 main .Category_Form input:nth-child(2) {
-  width: 100%;
   grid-area: priority;
 }
 
