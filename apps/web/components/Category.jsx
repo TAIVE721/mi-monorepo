@@ -58,15 +58,15 @@ export function Form_category() {
   return (
     <>
       {add ? (
-        <form id="Category_button">
-          <button onClick={HandleAdd}>+</button>
-        </form>
-      ) : (
         <form className="Category_Form">
           <input type="text" />
           <input type="text" />
           <button>Create</button>
           <button onClick={HandleAdd}>Cancel</button>
+        </form>
+      ) : (
+        <form id="Category_button">
+          <button onClick={HandleAdd}>+</button>
         </form>
       )}
     </>

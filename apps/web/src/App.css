@@ -172,15 +172,19 @@ main .Category_Form {
     "name priority"
     "name priority"
     "update delete";
+
   align-items: center;
+
   gap: 10px;
 }
 
 main .Category_Form input:first-child {
+  width: 100%;
   grid-area: name;
 }
 
 main .Category_Form input:nth-child(2) {
+  width: 100%;
   grid-area: priority;
 }
 
