@@ -1,5 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 export async function Call_Elements() {
-  const res = await fetch("http://localhost:1234/elements");
+  const res = await fetch(`${API_URL}/elements`);
 
   const json = await res.json();
   const data = json.map((element) => {
@@ -18,7 +20,7 @@ export async function Call_Elements() {
 }
 
 export async function Add_E(data) {
-  const res = await fetch("http://localhost:1234/elements", {
+  const res = await fetch(`${API_URL}/elements`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -50,7 +52,7 @@ export async function Patch_E(data) {
   };
   console.log(ts_data);
 
-  const res = await fetch("http://localhost:1234/elements/" + data.id, {
+  const res = await fetch(`${API_URL}/elements/` + data.id, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -74,7 +76,7 @@ export async function Patch_E(data) {
 }
 
 export async function Delete_E(id) {
-  const res = await fetch("http://localhost:1234/elements/" + id, {
+  const res = await fetch(`${API_URL}/elements/` + id, {
     method: "DELETE",
   });
 

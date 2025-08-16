@@ -1,5 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 export async function Call_Categories() {
-  const res = await fetch("http://localhost:1234/category");
+  const res = await fetch(`${API_URL}/category`);
 
   const json = await res.json();
   const data = json.map((category) => {
@@ -15,7 +17,7 @@ export async function Call_Categories() {
 }
 
 export async function Add_C(data) {
-  const res = await fetch("http://localhost:1234/category", {
+  const res = await fetch(`${API_URL}/category`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +42,7 @@ export async function Patch_C(data) {
     priority: data.priority,
   };
 
-  const res = await fetch("http://localhost:1234/category/" + data.id, {
+  const res = await fetch(`${API_URL}/category/` + data.id, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -60,7 +62,7 @@ export async function Patch_C(data) {
 }
 
 export async function Delete_C(id) {
-  const res = await fetch("http://localhost:1234/category/" + id, {
+  const res = await fetch(`${API_URL}/category/` + id, {
     method: "DELETE",
   });
   if (res.ok) {
