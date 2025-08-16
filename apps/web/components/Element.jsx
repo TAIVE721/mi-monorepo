@@ -2,6 +2,18 @@ import { use, useState } from "react";
 import { T_elements } from "../contexts/E_context.jsx";
 import { T_categories } from "../contexts/C_context.jsx";
 
+export function M_element({ element }) {
+  return (
+    <article className="A_element">
+      <p>{element.name} </p>
+      <p>{element.category} </p>
+      <p>{element.weight}kg</p>
+      <p>{element.description} </p>
+      <p>{element.priority} </p>
+    </article>
+  );
+}
+
 export function N_element({ element, HandleEdit }) {
   const { DeleteElement } = use(T_elements);
 
@@ -10,7 +22,7 @@ export function N_element({ element, HandleEdit }) {
   };
 
   return (
-    <article>
+    <article className="A_element">
       <p>{element.name} </p>
       <p>{element.category} </p>
       <p>{element.weight}kg</p>
@@ -47,18 +59,19 @@ export function Partial_element({ element, Handle_Nedit }) {
     const description = formdata.get("description");
     const category = formdata.get("category");
 
-    console.log(element.id);
     PatchElement({
-      id: element.id,
+      id: parseInt(element.id),
       name,
-      weight,
+      weight: parseInt(weight),
       description,
-      category,
+      category: parseInt(category),
     });
+
+    Handle_Nedit();
   }
 
   return (
-    <form id="Edit_Form">
+    <form className="Element_Form">
       <input
         name="name"
         type="text"
@@ -77,7 +90,7 @@ export function Partial_element({ element, Handle_Nedit }) {
         onChange={handleChange}
         value={data.description}
       />
-      <select name="category" onChange={handleChange} value={element.id}>
+      <select name="category" onChange={handleChange} value={data.category}>
         {categories.map((category) => {
           return (
             <option key={category.id} value={category.id}>
@@ -95,15 +108,31 @@ export function Partial_element({ element, Handle_Nedit }) {
 export function Form_Element() {
   const [add, setAdd] = useState(false);
   const { categories } = use(T_categories);
+  const { AddElement } = use(T_elements);
 
   const Handle_Add = () => {
     setAdd(!add);
   };
 
+  function Handle_Post(formdata) {
+    const name = formdata.get("name");
+    const weight = formdata.get("weight");
+    const description = formdata.get("description");
+    const category = formdata.get("category");
+
+    AddElement({
+      name,
+      weight: parseInt(weight),
+      description,
+      category: parseInt(category),
+    });
+    setAdd(!add);
+  }
+
   return (
     <>
       {add ? (
-        <form id="Create_Form">
+        <form className="Element_Form">
           <input name="name" type="text" placeholder="name" required />
           <input name="weight" type="number" placeholder="weight" required />
           <input
@@ -115,14 +144,14 @@ export function Form_Element() {
           <select name="category">
             {categories.map((category) => {
               return (
-                <option key={category.id} value={category.name}>
+                <option key={category.id} value={category.id}>
                   {category.name}
                 </option>
               );
             })}
           </select>
+          <button formAction={Handle_Post}>Create</button>
           <button onClick={Handle_Add}>Cancel</button>
-          <button>Create</button>
         </form>
       ) : (
         <form id="Form_button">

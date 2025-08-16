@@ -57,31 +57,68 @@ main {
   justify-content: center;
   flex-flow: row wrap;
   gap: 30px;
+  position: relative;
 }
 
-/* main forms */
+/* main Elements forms */
 
 main #Form_button {
+  width: 300px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-main form {
+main .Element_Form {
+  border: 5px solid black;
+  border-radius: 10px;
   padding: 10px;
   width: 300px;
   height: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "name name  category"
+    "name name category"
+    "description description weight"
+    "create create cancel";
+  align-items: center;
 }
 
-/* main articles */
-main article {
+main .Element_Form input:first-child {
+  grid-area: name;
+}
+
+main .Element_Form input:nth-child(2) {
+  grid-area: weight;
+}
+
+main .Element_Form input:nth-child(3) {
+  grid-area: description;
+}
+
+main .Element_Form input:nth-child(4) {
+  grid-area: category;
+}
+
+main .Element_Form button:nth-child(5) {
+  grid-area: create;
+}
+
+main .Element_Form button:nth-child(6) {
+  grid-area: cancel;
+}
+
+/* main articles Element*/
+main .A_element {
   border-radius: 10px;
   border: 3px solid rgb(77, 74, 74);
   padding: 10px;
   width: 300px;
   height: 300px;
   display: grid;
-  justify-content: center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-template-areas:
@@ -93,32 +130,126 @@ main article {
   gap: 10px;
 }
 
-main article p:first-child {
+main .A_element p:first-child {
   grid-area: name;
 }
-main article p:nth-child(2) {
+main .A_element p:nth-child(2) {
   grid-area: category;
 }
 
-main article p:nth-child(3) {
+main .A_element p:nth-child(3) {
   grid-area: weight;
   justify-self: center;
 }
 
-main article p:nth-child(4) {
+main .A_element p:nth-child(4) {
   grid-area: description;
 }
 
-main article p:nth-child(5) {
+main .A_element p:nth-child(5) {
   grid-area: priority;
   justify-self: center;
 }
 
-main article button:nth-child(6) {
+main .A_element button:nth-child(6) {
   grid-area: edit;
 }
-main article button:nth-child(7) {
+main .A_element button:nth-child(7) {
   grid-area: delete;
+}
+/* main  forms categories*/
+
+main .Category_Form {
+  border: 5px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "name priority"
+    "name priority"
+    "update delete";
+  align-items: center;
+  gap: 10px;
+}
+
+main .Category_Form input:first-child {
+  grid-area: name;
+}
+
+main .Category_Form input:nth-child(2) {
+  grid-area: priority;
+}
+
+main .Category_Form button:nth-child(3) {
+  grid-area: update;
+}
+
+main .Category_Form button:nth-child(4) {
+  grid-area: delete;
+}
+
+/* main articles Category*/
+main #Category_button {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .A_Category {
+  border: 5px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "name priority"
+    "name priority"
+    "edit delete";
+  align-items: center;
+  gap: 10px;
+}
+
+main .A_Category p:first-child {
+  grid-area: name;
+}
+
+main .A_Category p:nth-child(2) {
+  grid-area: priority;
+}
+
+main .A_Category button:nth-child(3) {
+  grid-area: edit;
+}
+
+main .A_Category button:nth-child(4) {
+  grid-area: delete;
+}
+
+/* main aside  */
+main #TotalSum {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+main aside {
+  display: flex;
+  flex-flow: wrap;
+  gap: 5px;
+  align-items: center;
 }
 
 /* Footer */

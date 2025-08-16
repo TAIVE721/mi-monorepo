@@ -1,7 +1,9 @@
+import { use } from "react";
+import { T_categories } from "../contexts/C_context";
+import { Categories } from "./Categories";
+
 export function S_Categories() {
-  return (
-    <>
-      <h1>Categories</h1>
-    </>
-  );
+  const { categories } = use(T_categories);
+
+  return <Categories categories={categories}></Categories>;
 }

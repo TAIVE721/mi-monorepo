@@ -18,7 +18,7 @@ export async function Call_Elements() {
 }
 
 export async function Add_E(data) {
-  const res = await fetch("http://localhost:1234elements", {
+  const res = await fetch("http://localhost:1234/elements", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -48,8 +48,8 @@ export async function Patch_E(data) {
     weight: data.weight,
     category: data.category,
   };
+  console.log(ts_data);
 
-  console.log(data.id);
   const res = await fetch("http://localhost:1234/elements/" + data.id, {
     method: "PATCH",
     headers: {
