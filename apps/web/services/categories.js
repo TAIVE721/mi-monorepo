@@ -23,7 +23,7 @@ export async function Add_C(data) {
     body: JSON.stringify(data),
   });
 
-  const json = res.json();
+  const json = await res.json();
 
   const category = {
     id: json.id,
@@ -48,7 +48,7 @@ export async function Patch_C(data) {
     body: JSON.stringify(ts_category),
   });
 
-  const json = res.json();
+  const json = await res.json();
 
   const category = {
     id: json.id,
