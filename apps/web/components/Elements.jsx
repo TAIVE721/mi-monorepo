@@ -8,6 +8,10 @@ export function Elements({ Elements }) {
     setEdit(id);
   };
 
+  const Handle_Nedit = () => {
+    setEdit(0);
+  };
+
   return (
     <>
       {Elements.map((element) => {
@@ -20,7 +24,12 @@ export function Elements({ Elements }) {
             ></N_element>
           );
         }
-        return <Partial_element element={element}></Partial_element>;
+        return (
+          <Partial_element
+            Handle_Nedit={HandleEdit}
+            element={element}
+          ></Partial_element>
+        );
       })}
       <Form_Element></Form_Element>
     </>

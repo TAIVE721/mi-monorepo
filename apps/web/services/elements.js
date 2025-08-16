@@ -46,9 +46,10 @@ export async function Patch_E(data) {
     name: data.name,
     description: data.description,
     weight: data.weight,
-    category: data.c_id,
+    category: data.category,
   };
 
+  console.log(ts_data);
   const res = fetch("http://localhost:1234/elements/" + data.id, {
     method: "PATCH",
     headers: {

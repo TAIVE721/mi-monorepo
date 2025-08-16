@@ -22,7 +22,9 @@ export function N_element({ element, HandleEdit }) {
   );
 }
 
-export function Partial_element({ element }) {
+export function Partial_element({ element, Handle_Nedit }) {
+  const { categories } = use(T_categories);
+  const { PatchElement } = use(T_elements);
   const [data, setdata] = useState({
     name: element.name,
     category: element.category,
@@ -39,22 +41,28 @@ export function Partial_element({ element }) {
     }));
   };
 
-  const { categories } = use(T_categories);
+  function HandleUpdate(formdata) {
+    const name = formdata.get("name");
+    const weight = formdata.get("weight");
+    const description = formdata.get("description");
+    const category = formdata.get("category");
 
-  console.log(categories);
+    PatchElement({
+      id: element.id,
+      name,
+      weight,
+      description,
+      category,
+    });
+  }
+
   return (
-    <form>
+    <form id="Edit_Form">
       <input
         name="name"
         type="text"
         onChange={handleChange}
         value={data.name}
-      />
-      <input
-        name="category"
-        type="number"
-        onChange={handleChange}
-        value={data.category}
       />
       <input
         name="weight"
@@ -68,22 +76,24 @@ export function Partial_element({ element }) {
         onChange={handleChange}
         value={data.description}
       />
-      <select name="priority">
+      <select name="category" onChange={handleChange} value={element.id}>
         {categories.map((category) => {
           return (
-            <option key={category.id} value={category.name}>
+            <option key={category.id} value={category.id}>
               {category.name}
             </option>
           );
         })}
       </select>
-      <button>Cancel</button>
+      <button onClick={Handle_Nedit}>Cancel</button>
+      <button formAction={HandleUpdate}>Update</button>
     </form>
   );
 }
 
 export function Form_Element() {
   const [add, setAdd] = useState(false);
+  const { categories } = use(T_categories);
 
   const Handle_Add = () => {
     setAdd(!add);
@@ -92,12 +102,24 @@ export function Form_Element() {
   return (
     <>
       {add ? (
-        <form>
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
+        <form id="Create_Form">
+          <input name="name" type="text" placeholder="name" required />
+          <input name="weight" type="number" placeholder="weight" required />
+          <input
+            name="description"
+            type="text"
+            placeholder="description"
+            required
+          />
+          <select name="category">
+            {categories.map((category) => {
+              return (
+                <option key={category.id} value={category.name}>
+                  {category.name}
+                </option>
+              );
+            })}
+          </select>
           <button onClick={Handle_Add}>Cancel</button>
           <button>Create</button>
         </form>

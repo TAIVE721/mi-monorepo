@@ -1,5 +1,5 @@
 export function C_reducer(state, action) {
-  if (action.type == "reaload") {
+  if (action.type == "reload") {
     return action.payload;
   }
 
