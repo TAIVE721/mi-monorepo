@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { N_element, Partial_element } from "./Element";
+import { Form_Element, N_element, Partial_element } from "./Element";
 
 export function Elements({ Elements }) {
   const [edit, setEdit] = useState(0);
@@ -7,8 +7,6 @@ export function Elements({ Elements }) {
   const HandleEdit = (id) => {
     setEdit(id);
   };
-
-  console.log(Elements);
 
   return (
     <>
@@ -24,6 +22,7 @@ export function Elements({ Elements }) {
         }
         return <Partial_element element={element}></Partial_element>;
       })}
+      <Form_Element></Form_Element>
     </>
   );
 }
