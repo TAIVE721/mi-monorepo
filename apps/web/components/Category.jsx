@@ -93,6 +93,7 @@ export function Form_category() {
       name: name,
       priority: parseInt(priority),
     });
+    setAdd(!add);
   }
 
   return (
