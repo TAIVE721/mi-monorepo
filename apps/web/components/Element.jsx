@@ -39,7 +39,7 @@ export function Partial_element({ element, Handle_Nedit }) {
   const { PatchElement } = use(T_elements);
   const [data, setdata] = useState({
     name: element.name,
-    category: element.category,
+    category: element.c_id,
     weight: element.weight,
     description: element.description,
     priority: element.priority,
